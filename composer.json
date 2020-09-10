@@ -1,0 +1,23 @@
+{
+    "name": "tencentcloud/mps",
+    "description": "TencentCloudApi php sdk mps",
+    "type": "library",
+    "homepage": "https://github.com/tencentcloud-sdk-php/mps",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "tencentcloudapi",
+            "email": "tencentcloudapi@tencent.com",
+            "homepage": "https://github.com/tencentcloud-sdk-php/mps",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "tencentcloud/common": "VERSION"
+    },
+    "autoload": {
+        "psr-4": {
+            "TencentCloud\\": "./src/TencentCloud"
+        }
+    }
+}
