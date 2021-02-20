@@ -18,19 +18,19 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateContentReviewTemplate返回参数结构体
+ * RecognizeMediaForZhiXue返回参数结构体
  *
- * @method integer getDefinition() 获取内容智能识别模板唯一标识。
- * @method void setDefinition(integer $Definition) 设置内容智能识别模板唯一标识。
+ * @method string getTaskId() 获取任务 ID，可以通过该 ID 查询任务状态和结果。
+ * @method void setTaskId(string $TaskId) 设置任务 ID，可以通过该 ID 查询任务状态和结果。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateContentReviewTemplateResponse extends AbstractModel
+class RecognizeMediaForZhiXueResponse extends AbstractModel
 {
     /**
-     * @var integer 内容智能识别模板唯一标识。
+     * @var string 任务 ID，可以通过该 ID 查询任务状态和结果。
      */
-    public $Definition;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateContentReviewTemplateResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Definition 内容智能识别模板唯一标识。
+     * @param string $TaskId 任务 ID，可以通过该 ID 查询任务状态和结果。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,8 @@ class CreateContentReviewTemplateResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

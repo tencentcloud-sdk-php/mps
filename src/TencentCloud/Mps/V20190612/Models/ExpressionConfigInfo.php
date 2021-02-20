@@ -18,20 +18,28 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeletePersonSample请求参数结构体
+ * 表情识别参数配置
  *
- * @method string getPersonId() 获取素材 ID。
- * @method void setPersonId(string $PersonId) 设置素材 ID。
+ * @method string getSwitch() 获取表情识别任务开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
+ * @method void setSwitch(string $Switch) 设置表情识别任务开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
  */
-class DeletePersonSampleRequest extends AbstractModel
+class ExpressionConfigInfo extends AbstractModel
 {
     /**
-     * @var string 素材 ID。
+     * @var string 表情识别任务开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
      */
-    public $PersonId;
+    public $Switch;
 
     /**
-     * @param string $PersonId 素材 ID。
+     * @param string $Switch 表情识别任务开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
      */
     function __construct()
     {
@@ -46,8 +54,8 @@ class DeletePersonSampleRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PersonId",$param) and $param["PersonId"] !== null) {
-            $this->PersonId = $param["PersonId"];
+        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
+            $this->Switch = $param["Switch"];
         }
     }
 }
