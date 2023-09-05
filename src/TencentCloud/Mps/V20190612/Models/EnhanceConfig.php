@@ -24,6 +24,10 @@ use TencentCloud\Common\AbstractModel;
 注意：此字段可能返回 null，表示取不到有效值。
  * @method void setVideoEnhance(VideoEnhanceConfig $VideoEnhance) 设置视频增强配置。
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method AudioEnhanceConfig getAudioEnhance() 获取音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setAudioEnhance(AudioEnhanceConfig $AudioEnhance) 设置音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
  */
 class EnhanceConfig extends AbstractModel
 {
@@ -34,7 +38,15 @@ class EnhanceConfig extends AbstractModel
     public $VideoEnhance;
 
     /**
+     * @var AudioEnhanceConfig 音频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $AudioEnhance;
+
+    /**
      * @param VideoEnhanceConfig $VideoEnhance 视频增强配置。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param AudioEnhanceConfig $AudioEnhance 音频增强配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -53,6 +65,11 @@ class EnhanceConfig extends AbstractModel
         if (array_key_exists("VideoEnhance",$param) and $param["VideoEnhance"] !== null) {
             $this->VideoEnhance = new VideoEnhanceConfig();
             $this->VideoEnhance->deserialize($param["VideoEnhance"]);
+        }
+
+        if (array_key_exists("AudioEnhance",$param) and $param["AudioEnhance"] !== null) {
+            $this->AudioEnhance = new AudioEnhanceConfig();
+            $this->AudioEnhance->deserialize($param["AudioEnhance"]);
         }
     }
 }
