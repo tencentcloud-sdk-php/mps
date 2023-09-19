@@ -18,23 +18,23 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 内容审核鉴黄任务输入参数类型
+ * 直播编排子任务输出
  *
- * @method integer getDefinition() 获取鉴黄模板 ID。
+ * @method LiveScheduleLiveRecordTaskResult getLiveRecordTask() 获取直播录制任务输出
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDefinition(integer $Definition) 设置鉴黄模板 ID。
+ * @method void setLiveRecordTask(LiveScheduleLiveRecordTaskResult $LiveRecordTask) 设置直播录制任务输出
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class AiReviewPornTaskInput extends AbstractModel
+class LiveActivityResItem extends AbstractModel
 {
     /**
-     * @var integer 鉴黄模板 ID。
+     * @var LiveScheduleLiveRecordTaskResult 直播录制任务输出
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Definition;
+    public $LiveRecordTask;
 
     /**
-     * @param integer $Definition 鉴黄模板 ID。
+     * @param LiveScheduleLiveRecordTaskResult $LiveRecordTask 直播录制任务输出
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -50,8 +50,9 @@ class AiReviewPornTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("LiveRecordTask",$param) and $param["LiveRecordTask"] !== null) {
+            $this->LiveRecordTask = new LiveScheduleLiveRecordTaskResult();
+            $this->LiveRecordTask->deserialize($param["LiveRecordTask"]);
         }
     }
 }

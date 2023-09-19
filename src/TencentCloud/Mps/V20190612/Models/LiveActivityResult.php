@@ -18,35 +18,39 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 片头片尾参数
+ * 直播编排任务输出
  *
- * @method array getHeadSet() 获取片头列表。
+ * @method string getActivityType() 获取原子任务类型。
+<li>LiveRecord：直播录制。</li>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setHeadSet(array $HeadSet) 设置片头列表。
+ * @method void setActivityType(string $ActivityType) 设置原子任务类型。
+<li>LiveRecord：直播录制。</li>
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getTailSet() 获取片尾列表。
+ * @method LiveActivityResItem getLiveActivityResItem() 获取原子任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTailSet(array $TailSet) 设置片尾列表。
+ * @method void setLiveActivityResItem(LiveActivityResItem $LiveActivityResItem) 设置原子任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class HeadTailParameter extends AbstractModel
+class LiveActivityResult extends AbstractModel
 {
     /**
-     * @var array 片头列表。
+     * @var string 原子任务类型。
+<li>LiveRecord：直播录制。</li>
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $HeadSet;
+    public $ActivityType;
 
     /**
-     * @var array 片尾列表。
+     * @var LiveActivityResItem 原子任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $TailSet;
+    public $LiveActivityResItem;
 
     /**
-     * @param array $HeadSet 片头列表。
+     * @param string $ActivityType 原子任务类型。
+<li>LiveRecord：直播录制。</li>
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $TailSet 片尾列表。
+     * @param LiveActivityResItem $LiveActivityResItem 原子任务输出。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -62,22 +66,13 @@ class HeadTailParameter extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HeadSet",$param) and $param["HeadSet"] !== null) {
-            $this->HeadSet = [];
-            foreach ($param["HeadSet"] as $key => $value){
-                $obj = new MediaInputInfo();
-                $obj->deserialize($value);
-                array_push($this->HeadSet, $obj);
-            }
+        if (array_key_exists("ActivityType",$param) and $param["ActivityType"] !== null) {
+            $this->ActivityType = $param["ActivityType"];
         }
 
-        if (array_key_exists("TailSet",$param) and $param["TailSet"] !== null) {
-            $this->TailSet = [];
-            foreach ($param["TailSet"] as $key => $value){
-                $obj = new MediaInputInfo();
-                $obj->deserialize($value);
-                array_push($this->TailSet, $obj);
-            }
+        if (array_key_exists("LiveActivityResItem",$param) and $param["LiveActivityResItem"] !== null) {
+            $this->LiveActivityResItem = new LiveActivityResItem();
+            $this->LiveActivityResItem->deserialize($param["LiveActivityResItem"]);
         }
     }
 }

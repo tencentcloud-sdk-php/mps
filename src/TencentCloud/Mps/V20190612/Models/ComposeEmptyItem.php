@@ -18,24 +18,24 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 内容审核鉴黄任务输入参数类型
+ * 视频编辑/合成任务 空白占位元素信息。
  *
- * @method integer getDefinition() 获取鉴黄模板 ID。
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDefinition(integer $Definition) 设置鉴黄模板 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getDuration() 获取元素时长，时间支持：
+<li>以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒。</li>
+ * @method void setDuration(string $Duration) 设置元素时长，时间支持：
+<li>以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒。</li>
  */
-class AiReviewPornTaskInput extends AbstractModel
+class ComposeEmptyItem extends AbstractModel
 {
     /**
-     * @var integer 鉴黄模板 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 元素时长，时间支持：
+<li>以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒。</li>
      */
-    public $Definition;
+    public $Duration;
 
     /**
-     * @param integer $Definition 鉴黄模板 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Duration 元素时长，时间支持：
+<li>以 s 结尾，表示时间点单位为秒，如 3.5s 表示时间点为第3.5秒。</li>
      */
     function __construct()
     {
@@ -50,8 +50,8 @@ class AiReviewPornTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Definition",$param) and $param["Definition"] !== null) {
-            $this->Definition = $param["Definition"];
+        if (array_key_exists("Duration",$param) and $param["Duration"] !== null) {
+            $this->Duration = $param["Duration"];
         }
     }
 }

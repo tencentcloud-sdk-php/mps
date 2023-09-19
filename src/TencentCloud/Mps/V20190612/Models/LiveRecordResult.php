@@ -18,31 +18,35 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 智能精彩片段结果信息
+ * 直播录制结果
  *
- * @method array getHighlightSet() 获取视频智能精彩片段列表。
- * @method void setHighlightSet(array $HighlightSet) 设置视频智能精彩片段列表。
- * @method TaskOutputStorage getOutputStorage() 获取精彩片段的存储位置。
+ * @method TaskOutputStorage getOutputStorage() 获取直播录制文件的目标存储。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOutputStorage(TaskOutputStorage $OutputStorage) 设置精彩片段的存储位置。
+ * @method void setOutputStorage(TaskOutputStorage $OutputStorage) 设置直播录制文件的目标存储。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getFileList() 获取直播录制文件列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setFileList(array $FileList) 设置直播录制文件列表
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class AiAnalysisTaskHighlightOutput extends AbstractModel
+class LiveRecordResult extends AbstractModel
 {
     /**
-     * @var array 视频智能精彩片段列表。
-     */
-    public $HighlightSet;
-
-    /**
-     * @var TaskOutputStorage 精彩片段的存储位置。
+     * @var TaskOutputStorage 直播录制文件的目标存储。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $OutputStorage;
 
     /**
-     * @param array $HighlightSet 视频智能精彩片段列表。
-     * @param TaskOutputStorage $OutputStorage 精彩片段的存储位置。
+     * @var array 直播录制文件列表
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $FileList;
+
+    /**
+     * @param TaskOutputStorage $OutputStorage 直播录制文件的目标存储。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $FileList 直播录制文件列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -58,18 +62,18 @@ class AiAnalysisTaskHighlightOutput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("HighlightSet",$param) and $param["HighlightSet"] !== null) {
-            $this->HighlightSet = [];
-            foreach ($param["HighlightSet"] as $key => $value){
-                $obj = new MediaAiAnalysisHighlightItem();
-                $obj->deserialize($value);
-                array_push($this->HighlightSet, $obj);
-            }
-        }
-
         if (array_key_exists("OutputStorage",$param) and $param["OutputStorage"] !== null) {
             $this->OutputStorage = new TaskOutputStorage();
             $this->OutputStorage->deserialize($param["OutputStorage"]);
+        }
+
+        if (array_key_exists("FileList",$param) and $param["FileList"] !== null) {
+            $this->FileList = [];
+            foreach ($param["FileList"] as $key => $value){
+                $obj = new LiveRecordFile();
+                $obj->deserialize($value);
+                array_push($this->FileList, $obj);
+            }
         }
     }
 }
