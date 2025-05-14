@@ -18,47 +18,51 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 图片任务输入参数
+ * 图标擦除配置
  *
- * @method ImageEncodeConfig getEncodeConfig() 获取图片编码配置。
+ * @method string getSwitch() 获取能力配置开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
+默认值：ON。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setEncodeConfig(ImageEncodeConfig $EncodeConfig) 设置图片编码配置。
+ * @method void setSwitch(string $Switch) 设置能力配置开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
+默认值：ON。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method ImageEnhanceConfig getEnhanceConfig() 获取图片增强配置。
+ * @method array getImageAreaBoxes() 获取需要擦除的多个框选区域，注意：参数数组长度最大为2。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setEnhanceConfig(ImageEnhanceConfig $EnhanceConfig) 设置图片增强配置。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method ImageEraseConfig getEraseConfig() 获取图片擦除配置。
+ * @method void setImageAreaBoxes(array $ImageAreaBoxes) 设置需要擦除的多个框选区域，注意：参数数组长度最大为2。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setEraseConfig(ImageEraseConfig $EraseConfig) 设置图片擦除配置。
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class ImageTaskInput extends AbstractModel
+class ImageEraseLogoConfig extends AbstractModel
 {
     /**
-     * @var ImageEncodeConfig 图片编码配置。
+     * @var string 能力配置开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
+默认值：ON。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $EncodeConfig;
+    public $Switch;
 
     /**
-     * @var ImageEnhanceConfig 图片增强配置。
+     * @var array 需要擦除的多个框选区域，注意：参数数组长度最大为2。
+注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $EnhanceConfig;
+    public $ImageAreaBoxes;
 
     /**
-     * @var ImageEraseConfig 图片擦除配置。
+     * @param string $Switch 能力配置开关，可选值：
+<li>ON：开启；</li>
+<li>OFF：关闭。</li>
+默认值：ON。
 注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $EraseConfig;
-
-    /**
-     * @param ImageEncodeConfig $EncodeConfig 图片编码配置。
+     * @param array $ImageAreaBoxes 需要擦除的多个框选区域，注意：参数数组长度最大为2。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ImageEnhanceConfig $EnhanceConfig 图片增强配置。
-注意：此字段可能返回 null，表示取不到有效值。
-     * @param ImageEraseConfig $EraseConfig 图片擦除配置。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -74,19 +78,17 @@ class ImageTaskInput extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EncodeConfig",$param) and $param["EncodeConfig"] !== null) {
-            $this->EncodeConfig = new ImageEncodeConfig();
-            $this->EncodeConfig->deserialize($param["EncodeConfig"]);
+        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
+            $this->Switch = $param["Switch"];
         }
 
-        if (array_key_exists("EnhanceConfig",$param) and $param["EnhanceConfig"] !== null) {
-            $this->EnhanceConfig = new ImageEnhanceConfig();
-            $this->EnhanceConfig->deserialize($param["EnhanceConfig"]);
-        }
-
-        if (array_key_exists("EraseConfig",$param) and $param["EraseConfig"] !== null) {
-            $this->EraseConfig = new ImageEraseConfig();
-            $this->EraseConfig->deserialize($param["EraseConfig"]);
+        if (array_key_exists("ImageAreaBoxes",$param) and $param["ImageAreaBoxes"] !== null) {
+            $this->ImageAreaBoxes = [];
+            foreach ($param["ImageAreaBoxes"] as $key => $value){
+                $obj = new ImageAreaBoxInfo();
+                $obj->deserialize($value);
+                array_push($this->ImageAreaBoxes, $obj);
+            }
         }
     }
 }
