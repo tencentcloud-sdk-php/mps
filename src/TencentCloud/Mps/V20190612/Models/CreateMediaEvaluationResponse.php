@@ -18,26 +18,19 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyPersonSample返回参数结构体
+ * CreateMediaEvaluation返回参数结构体
  *
- * @method AiSamplePerson getPerson() 获取素材信息。
- * @method void setPerson(AiSamplePerson $Person) 设置素材信息。
- * @method array getFailFaceInfoSet() 获取处理失败的五官信息。
- * @method void setFailFaceInfoSet(array $FailFaceInfoSet) 设置处理失败的五官信息。
+ * @method string getTaskId() 获取任务 ID。
+ * @method void setTaskId(string $TaskId) 设置任务 ID。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class ModifyPersonSampleResponse extends AbstractModel
+class CreateMediaEvaluationResponse extends AbstractModel
 {
     /**
-     * @var AiSamplePerson 素材信息。
+     * @var string 任务 ID。
      */
-    public $Person;
-
-    /**
-     * @var array 处理失败的五官信息。
-     */
-    public $FailFaceInfoSet;
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class ModifyPersonSampleResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param AiSamplePerson $Person 素材信息。
-     * @param array $FailFaceInfoSet 处理失败的五官信息。
+     * @param string $TaskId 任务 ID。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,18 +54,8 @@ class ModifyPersonSampleResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Person",$param) and $param["Person"] !== null) {
-            $this->Person = new AiSamplePerson();
-            $this->Person->deserialize($param["Person"]);
-        }
-
-        if (array_key_exists("FailFaceInfoSet",$param) and $param["FailFaceInfoSet"] !== null) {
-            $this->FailFaceInfoSet = [];
-            foreach ($param["FailFaceInfoSet"] as $key => $value){
-                $obj = new AiSampleFailFaceInfo();
-                $obj->deserialize($value);
-                array_push($this->FailFaceInfoSet, $obj);
-            }
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
