@@ -18,28 +18,22 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 对视频做采样截图任务结果类型
+ * 媒体质检任务结果类型
  *
  * @method string getStatus() 获取任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
  * @method void setStatus(string $Status) 设置任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
  * @method string getErrCodeExt() 获取错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
  * @method void setErrCodeExt(string $ErrCodeExt) 设置错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
- * @method integer getErrCode() 获取错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
- * @method void setErrCode(integer $ErrCode) 设置错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
  * @method string getMessage() 获取错误信息。
  * @method void setMessage(string $Message) 设置错误信息。
- * @method SampleSnapshotTaskInput getInput() 获取对视频做采样截图任务输入。
- * @method void setInput(SampleSnapshotTaskInput $Input) 设置对视频做采样截图任务输入。
- * @method MediaSampleSnapshotItem getOutput() 获取对视频做采样截图任务输出。
+ * @method ExecRulesTask getInput() 获取条件判断任务的输入。
+ * @method void setInput(ExecRulesTask $Input) 设置条件判断任务的输入。
+ * @method ExecRuleTaskData getOutput() 获取条件判断任务的输出。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setOutput(MediaSampleSnapshotItem $Output) 设置对视频做采样截图任务输出。
+ * @method void setOutput(ExecRuleTaskData $Output) 设置条件判断任务的输出。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getBeginProcessTime() 获取任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
- * @method void setBeginProcessTime(string $BeginProcessTime) 设置任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
- * @method string getFinishTime() 获取任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
- * @method void setFinishTime(string $FinishTime) 设置任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
  */
-class MediaProcessTaskSampleSnapshotResult extends AbstractModel
+class ScheduleExecRuleTaskResult extends AbstractModel
 {
     /**
      * @var string 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
@@ -52,46 +46,28 @@ class MediaProcessTaskSampleSnapshotResult extends AbstractModel
     public $ErrCodeExt;
 
     /**
-     * @var integer 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
-     */
-    public $ErrCode;
-
-    /**
      * @var string 错误信息。
      */
     public $Message;
 
     /**
-     * @var SampleSnapshotTaskInput 对视频做采样截图任务输入。
+     * @var ExecRulesTask 条件判断任务的输入。
      */
     public $Input;
 
     /**
-     * @var MediaSampleSnapshotItem 对视频做采样截图任务输出。
+     * @var ExecRuleTaskData 条件判断任务的输出。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Output;
 
     /**
-     * @var string 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
-    public $BeginProcessTime;
-
-    /**
-     * @var string 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     */
-    public $FinishTime;
-
-    /**
      * @param string $Status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
      * @param string $ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
-     * @param integer $ErrCode 错误码，0 表示成功，其他值表示失败（该字段已不推荐使用，建议使用新的错误码字段 ErrCodeExt）。
      * @param string $Message 错误信息。
-     * @param SampleSnapshotTaskInput $Input 对视频做采样截图任务输入。
-     * @param MediaSampleSnapshotItem $Output 对视频做采样截图任务输出。
+     * @param ExecRulesTask $Input 条件判断任务的输入。
+     * @param ExecRuleTaskData $Output 条件判断任务的输出。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $BeginProcessTime 任务开始执行的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
-     * @param string $FinishTime 任务执行完毕的时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/862/37710#52)。
      */
     function __construct()
     {
@@ -114,30 +90,18 @@ class MediaProcessTaskSampleSnapshotResult extends AbstractModel
             $this->ErrCodeExt = $param["ErrCodeExt"];
         }
 
-        if (array_key_exists("ErrCode",$param) and $param["ErrCode"] !== null) {
-            $this->ErrCode = $param["ErrCode"];
-        }
-
         if (array_key_exists("Message",$param) and $param["Message"] !== null) {
             $this->Message = $param["Message"];
         }
 
         if (array_key_exists("Input",$param) and $param["Input"] !== null) {
-            $this->Input = new SampleSnapshotTaskInput();
+            $this->Input = new ExecRulesTask();
             $this->Input->deserialize($param["Input"]);
         }
 
         if (array_key_exists("Output",$param) and $param["Output"] !== null) {
-            $this->Output = new MediaSampleSnapshotItem();
+            $this->Output = new ExecRuleTaskData();
             $this->Output->deserialize($param["Output"]);
-        }
-
-        if (array_key_exists("BeginProcessTime",$param) and $param["BeginProcessTime"] !== null) {
-            $this->BeginProcessTime = $param["BeginProcessTime"];
-        }
-
-        if (array_key_exists("FinishTime",$param) and $param["FinishTime"] !== null) {
-            $this->FinishTime = $param["FinishTime"];
         }
     }
 }
