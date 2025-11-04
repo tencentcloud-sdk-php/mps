@@ -18,63 +18,67 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * HDR配置
+ * 大模型增强
  *
  * @method string getSwitch() 获取能力配置开关，可选值：
-<li>ON：开启；</li>
-<li>OFF：关闭。</li>
-默认值：ON。
+
+ON：开启；
+OFF：关闭。
+默认，OFF。
  * @method void setSwitch(string $Switch) 设置能力配置开关，可选值：
-<li>ON：开启；</li>
-<li>OFF：关闭。</li>
-默认值：ON。
- * @method string getType() 获取类型，可选值：
-<li>HDR10</li>
-<li>HLG</li>
-默认值：HDR10。
-注意：video的编码方式需要为h264或h265；
-注意：视频编码位深为10。
+
+ON：开启；
+OFF：关闭。
+默认，OFF。
+ * @method string getType() 获取强度类型，可选值：
+
+weak
+normal
+strong
+默认值：normal。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setType(string $Type) 设置类型，可选值：
-<li>HDR10</li>
-<li>HLG</li>
-默认值：HDR10。
-注意：video的编码方式需要为h264或h265；
-注意：视频编码位深为10。
+ * @method void setType(string $Type) 设置强度类型，可选值：
+
+weak
+normal
+strong
+默认值：normal。
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class HdrConfig extends AbstractModel
+class DiffusionEnhanceConfig extends AbstractModel
 {
     /**
      * @var string 能力配置开关，可选值：
-<li>ON：开启；</li>
-<li>OFF：关闭。</li>
-默认值：ON。
+
+ON：开启；
+OFF：关闭。
+默认，OFF。
      */
     public $Switch;
 
     /**
-     * @var string 类型，可选值：
-<li>HDR10</li>
-<li>HLG</li>
-默认值：HDR10。
-注意：video的编码方式需要为h264或h265；
-注意：视频编码位深为10。
+     * @var string 强度类型，可选值：
+
+weak
+normal
+strong
+默认值：normal。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Type;
 
     /**
      * @param string $Switch 能力配置开关，可选值：
-<li>ON：开启；</li>
-<li>OFF：关闭。</li>
-默认值：ON。
-     * @param string $Type 类型，可选值：
-<li>HDR10</li>
-<li>HLG</li>
-默认值：HDR10。
-注意：video的编码方式需要为h264或h265；
-注意：视频编码位深为10。
+
+ON：开启；
+OFF：关闭。
+默认，OFF。
+     * @param string $Type 强度类型，可选值：
+
+weak
+normal
+strong
+默认值：normal。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
