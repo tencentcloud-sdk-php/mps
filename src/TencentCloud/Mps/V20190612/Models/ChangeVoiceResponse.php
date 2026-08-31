@@ -18,27 +18,23 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeTextToSpeechAsyncTask返回参数结构体
+ * ChangeVoice返回参数结构体
  *
- * @method integer getErrorCode() 获取<p>错误码，成功时返回0，处理中返回100</p>
- * @method void setErrorCode(integer $ErrorCode) 设置<p>错误码，成功时返回0，处理中返回100</p>
+ * @method integer getErrorCode() 获取<p>错误码，成功时返回0</p>
+ * @method void setErrorCode(integer $ErrorCode) 设置<p>错误码，成功时返回0</p>
  * @method string getMsg() 获取<p>错误信息，成功时返回success</p>
  * @method void setMsg(string $Msg) 设置<p>错误信息，成功时返回success</p>
- * @method string getStatus() 获取<p>任务状态</p><p>枚举值：</p><ul><li>success： 成功</li><li>fail： 失败</li><li>processing： 处理中</li></ul>
- * @method void setStatus(string $Status) 设置<p>任务状态</p><p>枚举值：</p><ul><li>success： 成功</li><li>fail： 失败</li><li>processing： 处理中</li></ul>
- * @method string getAudioUrl() 获取<p>合成音频url</p>
- * @method void setAudioUrl(string $AudioUrl) 设置<p>合成音频url</p>
- * @method string getVoiceId() 获取<p>使用的音色ID</p>
- * @method void setVoiceId(string $VoiceId) 设置<p>使用的音色ID</p>
- * @method string getExtInfo() 获取<p>扩展信息</p>
- * @method void setExtInfo(string $ExtInfo) 设置<p>扩展信息</p>
+ * @method string getAudioData() 获取<p>结果音频的base64编码，默认mp3格式</p>
+ * @method void setAudioData(string $AudioData) 设置<p>结果音频的base64编码，默认mp3格式</p>
+ * @method string getAudioUrl() 获取<p>结果音频url，有效期24小时</p>
+ * @method void setAudioUrl(string $AudioUrl) 设置<p>结果音频url，有效期24小时</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeTextToSpeechAsyncTaskResponse extends AbstractModel
+class ChangeVoiceResponse extends AbstractModel
 {
     /**
-     * @var integer <p>错误码，成功时返回0，处理中返回100</p>
+     * @var integer <p>错误码，成功时返回0</p>
      */
     public $ErrorCode;
 
@@ -48,24 +44,14 @@ class DescribeTextToSpeechAsyncTaskResponse extends AbstractModel
     public $Msg;
 
     /**
-     * @var string <p>任务状态</p><p>枚举值：</p><ul><li>success： 成功</li><li>fail： 失败</li><li>processing： 处理中</li></ul>
+     * @var string <p>结果音频的base64编码，默认mp3格式</p>
      */
-    public $Status;
+    public $AudioData;
 
     /**
-     * @var string <p>合成音频url</p>
+     * @var string <p>结果音频url，有效期24小时</p>
      */
     public $AudioUrl;
-
-    /**
-     * @var string <p>使用的音色ID</p>
-     */
-    public $VoiceId;
-
-    /**
-     * @var string <p>扩展信息</p>
-     */
-    public $ExtInfo;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -73,12 +59,10 @@ class DescribeTextToSpeechAsyncTaskResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $ErrorCode <p>错误码，成功时返回0，处理中返回100</p>
+     * @param integer $ErrorCode <p>错误码，成功时返回0</p>
      * @param string $Msg <p>错误信息，成功时返回success</p>
-     * @param string $Status <p>任务状态</p><p>枚举值：</p><ul><li>success： 成功</li><li>fail： 失败</li><li>processing： 处理中</li></ul>
-     * @param string $AudioUrl <p>合成音频url</p>
-     * @param string $VoiceId <p>使用的音色ID</p>
-     * @param string $ExtInfo <p>扩展信息</p>
+     * @param string $AudioData <p>结果音频的base64编码，默认mp3格式</p>
+     * @param string $AudioUrl <p>结果音频url，有效期24小时</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -102,20 +86,12 @@ class DescribeTextToSpeechAsyncTaskResponse extends AbstractModel
             $this->Msg = $param["Msg"];
         }
 
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("AudioData",$param) and $param["AudioData"] !== null) {
+            $this->AudioData = $param["AudioData"];
         }
 
         if (array_key_exists("AudioUrl",$param) and $param["AudioUrl"] !== null) {
             $this->AudioUrl = $param["AudioUrl"];
-        }
-
-        if (array_key_exists("VoiceId",$param) and $param["VoiceId"] !== null) {
-            $this->VoiceId = $param["VoiceId"];
-        }
-
-        if (array_key_exists("ExtInfo",$param) and $param["ExtInfo"] !== null) {
-            $this->ExtInfo = $param["ExtInfo"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -18,28 +18,20 @@ namespace TencentCloud\Mps\V20190612\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 创建媒体传输流的输出的RTP的目标地址。
+ * DescribeAgentRecordTask请求参数结构体
  *
- * @method string getIp() 获取<p>转推的目标IP。</p>
- * @method void setIp(string $Ip) 设置<p>转推的目标IP。</p>
- * @method integer getPort() 获取<p>转推的目标端口。</p>
- * @method void setPort(integer $Port) 设置<p>转推的目标端口。</p>
+ * @method string getTaskId() 获取<p>创建Agent录制任务时，返回的任务ID。</p>
+ * @method void setTaskId(string $TaskId) 设置<p>创建Agent录制任务时，返回的任务ID。</p>
  */
-class CreateOutputRTPSettingsDestinations extends AbstractModel
+class DescribeAgentRecordTaskRequest extends AbstractModel
 {
     /**
-     * @var string <p>转推的目标IP。</p>
+     * @var string <p>创建Agent录制任务时，返回的任务ID。</p>
      */
-    public $Ip;
+    public $TaskId;
 
     /**
-     * @var integer <p>转推的目标端口。</p>
-     */
-    public $Port;
-
-    /**
-     * @param string $Ip <p>转推的目标IP。</p>
-     * @param integer $Port <p>转推的目标端口。</p>
+     * @param string $TaskId <p>创建Agent录制任务时，返回的任务ID。</p>
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class CreateOutputRTPSettingsDestinations extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Ip",$param) and $param["Ip"] !== null) {
-            $this->Ip = $param["Ip"];
-        }
-
-        if (array_key_exists("Port",$param) and $param["Port"] !== null) {
-            $this->Port = $param["Port"];
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
     }
 }
